@@ -1,0 +1,6 @@
+.note-cards {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 40px;
+}

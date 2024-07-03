@@ -1,0 +1,32 @@
+.search-bar input {
+    border: none;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: transparent;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar .icon {
+    padding-right: 20px;
+    color: gray;
+}
+
+.search-bar .icon:hover {
+    color: black;
+}
+
+.search-bar {
+    background-color: #e2e8f0;
+    border-radius: 13px;
+}
+
+.search-bar input:focus {
+    border: none;
+    outline: none; 
+}
