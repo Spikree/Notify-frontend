@@ -1,0 +1,42 @@
+.signup-box-parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.signup-box {
+    padding: 40px;
+    border: 1px solid black;
+    max-width: fit-content;
+    align-items: center;
+    box-shadow: 16px;
+    border-radius: 12px;
+}
+
+.signup-box button {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    border-radius: 8px;
+    border: none;
+    color: white;
+    background-color: #0071e3;
+    font-weight: 500;
+}
+
+.signup-box form h4 {
+    margin: 0px;
+    font-size: 25px;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+}
+
+.signup-box form {
+    display: flex;
+    flex-direction: column;
+}

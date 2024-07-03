@@ -1,0 +1,71 @@
+.login-box-parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+
+.login-box {
+    padding: 40px;
+    border: 1px solid black;
+    max-width: fit-content;
+    align-items: center;
+    box-shadow: 16px;
+    border-radius: 12px;
+}
+
+p a {
+    color: rgb(70, 140, 237);
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-box form h4 {
+    margin: 0px;
+}
+
+.login-box form h4 {
+    font-size: 25px;
+}
+
+.inputs label {
+    font-size: 18px;
+    margin-bottom: 8px;
+    margin-top: 8px;
+}
+
+.inputs input {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 7px;
+    border: 1px solid black;
+    outline: none;
+}
+
+.inputs input:active {
+    border:1px solid rgb(70, 140, 237);
+}
+
+.login-box form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.login-box button {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    border-radius: 8px;
+    border: none;
+    color: white;
+    background-color: #0071e3;
+    font-weight: 500;
+}
