@@ -1,0 +1,49 @@
+.edit-notes {
+    padding: 10px;
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+}
+
+.edit-notes div {
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+}
+
+.edit-notes div label {
+    color: gray;
+}
+
+.edit-notes div input {
+    border: none;
+    background-color: #e2e8f0; 
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.edit-notes div input:focus {
+    border: none;
+    outline: none;
+}
+
+.edit-notes div textarea:focus {
+    border: none;
+    outline: none;
+}
+
+.edit-notes div textarea {
+    border: none;
+    background-color: #e2e8f0; 
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.edit-notes button {
+    padding-top: 6px;
+    padding-bottom: 6px;
+    border-radius: 7px;
+    border: none;
+    background-color: #0071e3;
+    color: white;
+}

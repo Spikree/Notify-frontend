@@ -1,0 +1,45 @@
+.notecard {
+    padding: 30px;
+    border: 1px solid gray;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.notecard h3 {
+    margin:0px;
+}
+
+.notecard-bottom {
+    display: flex;
+    justify-content: space-between;
+}
+
+.pin-blue {
+    color: #0071e3;
+    font-size: 25px;
+}
+
+.notecard-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.notecard .icons {
+    color: gray;
+    font-size: 25px;
+}
+
+.notecard p {
+    margin: 0px;
+}
+
+.date {
+    color: gray;
+}
+
+.tags {
+    color: gray;
+}
