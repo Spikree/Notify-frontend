@@ -1,3 +1,48 @@
 .tags div {
     display: flex;
 }
+
+.tags {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.tag-container {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+    max-width: 320px;
+}
+
+.tags .icons {
+    color: gray;
+}
+
+.input-container .add-tags-button {
+    width: 30px;
+}
+
+.tag {
+    background-color: #e2e8f0;
+    padding: 8px;
+    border-radius: 7px;
+}
+
+.input-container {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.gray-button {
+    border: none;
+    outline: none;
+    background-color: #e2e8f0;
+    color: black;
+    border-radius: 12px;
+}
+
+.input-container input {
+    max-width: 280px;
+}

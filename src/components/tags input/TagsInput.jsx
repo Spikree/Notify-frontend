@@ -1,51 +1,60 @@
-import React, { useState } from 'react'
-import './TagsInput.css'
-import { MdAdd, MdClose } from 'react-icons/md'
+import React, { useState } from 'react';
+import './TagsInput.css';
+import { MdAdd, MdClose } from 'react-icons/md';
 
 const TagsInput = (props) => {
-
     const [inputValue, setInputValue] = useState("");
 
     const handleInputChange = (e) => {
-        setInputValue(e.target.value)
-    }
+        setInputValue(e.target.value);
+    };
 
     const addNewTag = () => {
-        if (!inputValue.trim() !== "") {
+        if (inputValue.trim() !== "") { // Fixed condition to add only if there's input
             props.setTags([...props.tags, inputValue.trim()]);
             setInputValue("");
         }
-    }
+    };
 
     const handleKeyDown = (e) => {
         if (e.key === "Enter") {
             addNewTag();
         }
-    }
+    };
 
     const handleRemoveTag = (tagToRemove) => {
-        setTags(props.tags.filter((tag) => tag !== tagToRemove));
-    }
+        props.setTags(props.tags.filter((tag) => tag !== tagToRemove));
+    };
 
     return (
         <div className='tags'>
-            {props.tags?.length > 0 && (
-                <div>
-                    {props.tags.map((tag, index) => {
-                        <span key={index}>
+            {props.tags.length > 0 && (
+                <div className='tag-container'> 
+                    {props.tags.map((tag, index) => (
+                        <span className='tag' key={index}>
                             # {tag}
-                            <button onClick={() => {handleRemoveTag(tag)}}><MdClose /></button>
+                            <button className='gray-button remove-button' onClick={() => handleRemoveTag(tag)}> 
+                                <MdClose className='icons' /> 
+                            </button>
                         </span>
-                    })}
+                    ))}
                 </div>
             )}
 
-            <div>
-                <input type="text" placeholder='add tags' onChange={handleInputChange} onKeyDown={handleKeyDown} />
-                <button onClick={() => { addNewTag() }}><MdAdd /></button>
+            <div className='input-container'> 
+                <input 
+                    type="text" 
+                    placeholder='Add tags' 
+                    value={inputValue}
+                    onChange={handleInputChange}
+                    onKeyDown={handleKeyDown} 
+                />
+                <button className='add-tags-button gray-button' onClick={addNewTag}>
+                    <MdAdd className='icons' />
+                </button>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default TagsInput
+export default TagsInput;

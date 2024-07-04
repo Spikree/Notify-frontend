@@ -5,6 +5,7 @@ import NoteCard from '../../components/note card/NoteCard'
 import EditNotes from '../../components/edit notes/EditNotes.jsx'
 import { MdAdd } from 'react-icons/md'
 import Modal from 'react-modal'
+import { ToastContainer } from 'react-toastify'
 
 const Home = () => {
 
@@ -12,6 +13,7 @@ const Home = () => {
 
   return (
     <>
+    <ToastContainer/>
     <Navbar/>
 
     <div className="note-cards">
@@ -36,7 +38,7 @@ const Home = () => {
     <div className='modal-div'>
     <Modal isOpen={openAddEditModal.isShown} onRequestClose={() => {}} style={{overlay: {backgroundColor:"rgba(0,0,0,0.2)"}}} contentLabel=""className="modal">
 
-    <EditNotes />
+    <EditNotes type={openAddEditModal.type} newNote={openAddEditModal.data} onClose={() => {setOpenAddEditModal({isShown : false, type:"add", data: null})}}/>
 
     </Modal>
     </div>

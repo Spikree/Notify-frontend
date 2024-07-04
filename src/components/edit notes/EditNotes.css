@@ -5,14 +5,18 @@
     flex-direction: column;
 }
 
-.edit-notes div {
+.edit-notes .edit-notes-inner-div {
     display: flex;
-    gap: 15px;
+    gap: 7px;
     flex-direction: column;
 }
 
 .edit-notes div label {
     color: gray;
+}
+
+.edit-notes-inner-div textarea {
+    resize: none;
 }
 
 .edit-notes div input {
@@ -39,7 +43,23 @@
     border-radius: 12px;
 }
 
-.edit-notes button {
+.edit-notes .close {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: center;
+}
+
+.close {
+    color: gray;
+    font-size: 20px;
+}
+
+.close:hover {
+    color: black;
+}
+
+.edit-notes .edit-notes-button {
     padding-top: 6px;
     padding-bottom: 6px;
     border-radius: 7px;
