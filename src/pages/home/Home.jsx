@@ -32,6 +32,15 @@ const Home = () => {
     }
   }
 
+  // get all notes
+  const getAllNotes = async () => {
+    try {
+      const response = await axiosInstance.get("/get-all-notes")
+    } catch (error) {
+      
+    }
+  }
+
   useEffect(() => {
     getUserInfo();
     return () => {
