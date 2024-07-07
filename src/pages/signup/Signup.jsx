@@ -5,13 +5,15 @@ import { ToastContainer, toast } from 'react-toastify';
 import { validateEmail } from '../../validate/validate'
 import 'react-toastify/dist/ReactToastify.css';
 import PasswordInput from '../../components/password input/PasswordInput.jsx';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import axiosInstance from '../../validate/axiosInstance.js';
 
 const Signup = () => {
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleSignup = async (e) => {
     e.preventDefault();
@@ -28,6 +30,30 @@ const Signup = () => {
     if (password.length < 6) {
       toast.error("password must be atleast 6 characters");
       return;
+    }
+
+    try {
+      const response = await axiosInstance.post("/create-account",{
+        fullName: name,
+        email: email,
+        password: password
+      })
+
+      if(response.data && response.data.error) {
+        toast.error(response.data.message)
+        return
+      }
+
+      if(response.data && response.data.accessToken) {
+        localStorage.setItem("token",response.data.accessToken)
+        navigate('/home')
+      }
+    } catch (error) {
+      if (error.response && error.response.data && error.response.data.message) {
+        toast.error(error.response.data.message);
+      } else {
+        toast.error("an unexpected error occoured. please try again")
+      }
     }
   }
 
