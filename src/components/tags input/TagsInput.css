@@ -35,6 +35,13 @@
     justify-content: center;
 }
 
+.limit-message {
+    padding: 0px;
+    margin: 0px;
+    color: red;
+    
+}
+
 .gray-button {
     border: none;
     outline: none;
