@@ -81,7 +81,7 @@ const Signup = () => {
 
               <button type='submit'>create account</button>
 
-              <p>Already have an account? <Link to={"/login"}>Login here</Link></p>
+              <p>Already have an account? <Link to={"/"}>Login here</Link></p>
             </form>
           </div>
         </div>
