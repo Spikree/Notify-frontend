@@ -8,6 +8,7 @@ import Modal from 'react-modal'
 import { ToastContainer } from 'react-toastify'
 import { useNavigate } from 'react-router-dom'
 import axiosInstance from '../../validate/axiosInstance.js'
+import moment from 'moment'
 
 const Home = () => {
 
@@ -15,7 +16,13 @@ const Home = () => {
 
   const [userInfo, setUseInfo] = useState(null);
 
+  const [allNotes, setAllNotes] = useState([])
+
   const navigate = useNavigate();
+
+  const handleEdit = (noteDetails) => {
+    setOpenAddEditModal({isShown: true,data:noteDetails,type:"edit"})
+  }
 
   // get user info
   const getUserInfo = async () => {
@@ -35,13 +42,18 @@ const Home = () => {
   // get all notes
   const getAllNotes = async () => {
     try {
-      const response = await axiosInstance.get("/get-all-notes")
+      const response = await axiosInstance.get("/get-all-notes");
+
+      if(response.data && response.data.notes) {
+        setAllNotes(response.data.notes)
+      }
     } catch (error) {
-      
+      console.log("an unexprected error occoured");
     }
   }
 
   useEffect(() => {
+    getAllNotes();
     getUserInfo();
     return () => {
 
@@ -55,16 +67,20 @@ const Home = () => {
       <Navbar userInfo={userInfo} />
 
       <div className="note-cards">
-        <NoteCard
-          title="Meeting on 7th april"
-          date="3rd april 2024"
-          content="Meeting on 7th april Meeting on 7th april"
-          tags="#Meeting"
-          isPinned={true}
-          onEdit={() => { }}
+        {allNotes.map((item,index) => (
+          <NoteCard
+          key={item._id}
+          title={item.title}
+          date={moment(item.createdOn).format('Do MMM YYYY')}
+          content={item.content}
+          tags={item.tags}
+          isPinned={item.isPinned}
+          onEdit={() => handleEdit(item)}
           onDelete={() => { }}
           onPinnedNote={() => { }}
         />
+        ))}
+        
       </div>
 
       <button className='add-button' onClick={() => {
@@ -76,7 +92,7 @@ const Home = () => {
       <div className='modal-div'>
         <Modal isOpen={openAddEditModal.isShown} onRequestClose={() => { }} style={{ overlay: { backgroundColor: "rgba(0,0,0,0.2)" } }} contentLabel="" className="modal">
 
-          <EditNotes type={openAddEditModal.type} newNote={openAddEditModal.data} onClose={() => { setOpenAddEditModal({ isShown: false, type: "add", data: null }) }} />
+          <EditNotes type={openAddEditModal.type} newNote={openAddEditModal.data} onClose={() => { setOpenAddEditModal({ isShown: false, type: "add", data: null }) }} getAllNotes={getAllNotes}/>
 
         </Modal>
       </div>

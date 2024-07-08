@@ -18,10 +18,10 @@ const NoteCard = (props) => {
       <p>{props.content?.slice(0,60)}</p>
 
       <div className='notecard-bottom'>
-        <div className='tags'>{props.tags}</div>
+        <div className='tags'>{props.tags.map((item) => `#${item}`)}</div>
         <div className='delete-edit'>
-          <MdCreate className='icons' onClick={()=>{}}/>
-          <MdDelete className='icons' onClick={()=>{}}/>
+          <MdCreate className='icons' onClick={props.onEdit}/>
+          <MdDelete className='icons' onClick={props.onDelete}/>
         </div>
       </div>
     </div>
