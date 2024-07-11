@@ -20,6 +20,8 @@ const Home = () => {
 
   const [allNotes, setAllNotes] = useState([])
 
+  const [searchBar, setSearchBar] = useState(false);
+
   const navigate = useNavigate();
 
 
@@ -34,6 +36,7 @@ const Home = () => {
     try {
       const response = await axiosInstance.get("/get-user")
       if (response.data && response.data.user) {
+        setSearchBar(!searchBar);
         setUseInfo(response.data.user);
       }
     } catch (error) {
@@ -85,7 +88,7 @@ const Home = () => {
   return (
     <>
       <ToastContainer />
-      <Navbar userInfo={userInfo} />
+      <Navbar searchBar={searchBar} userInfo={userInfo} />
 
       {allNotes.length > 0 ? <div className="note-cards">
         {allNotes.map((item,index) => (

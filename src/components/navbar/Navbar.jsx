@@ -26,9 +26,9 @@ const Navbar = (props) => {
     <div className='navbar'>
         <h2>Notify</h2>
 
-        <SearchBar value={searchQuery} onChange={({target}) => {
+        {props.searchBar && <SearchBar value={searchQuery} onChange={({target}) => {
           setSearchQuery(target.value)
-        }} handleSearch={handleSearch} onClearSearch={onClearSearch}/>
+        }} handleSearch={handleSearch} onClearSearch={onClearSearch}/>}
 
         <ProfileInfo userInfo={props.userInfo} onLogout={onLogout}/>
     </div>

@@ -6,7 +6,6 @@ import PasswordInput from '../../components/password input/PasswordInput'
 import { validateEmail } from '../../validate/validate'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import axios from 'axios'
 import axiosInstance from '../../validate/axiosInstance'
 
 const Login = () => {
@@ -38,6 +37,7 @@ const Login = () => {
         localStorage.setItem("token",response.data.accessToken)
         navigate('/home')
       }
+
     } catch (error) {
       if (error.response && error.response.data && error.response.data.message) {
         toast.error(error.response.data.message);
