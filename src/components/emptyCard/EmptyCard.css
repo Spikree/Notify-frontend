@@ -1,0 +1,19 @@
+.empty-card {
+    color: gray;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.empty-logo {
+    font-size: 300px;
+    max-height: 350px;
+}
+
+.empty-text p {
+    padding: 30px;
+    text-align: center;
+}

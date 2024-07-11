@@ -15,13 +15,13 @@ const NoteCard = (props) => {
         <MdOutlinePushPin style={{paddingBottom:18}} className={props.isPinned ?"pin-blue" : "icons"}/>
       </div>
 
-      <p>{props.content?.slice(0,60)}</p>
+      <p>{props.content?.slice(0,60)}. . . .</p>
 
       <div className='notecard-bottom'>
         <div className='tags'>{props.tags.map((item) => `#${item}`)}</div>
         <div className='delete-edit'>
-          <MdCreate className='icons' onClick={props.onEdit}/>
-          <MdDelete className='icons' onClick={props.onDelete}/>
+          <MdCreate className='edit icons' onClick={props.onEdit}/>
+          <MdDelete className='delete icons' onClick={props.onDelete}/>
         </div>
       </div>
     </div>

@@ -10,6 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom'
 import axiosInstance from '../../validate/axiosInstance.js'
 import moment from 'moment'
+import EmptyCard from '../../components/emptyCard/EmptyCard.jsx'
 
 const Home = () => {
 
@@ -86,7 +87,7 @@ const Home = () => {
       <ToastContainer />
       <Navbar userInfo={userInfo} />
 
-      <div className="note-cards">
+      {allNotes.length > 0 ? <div className="note-cards">
         {allNotes.map((item,index) => (
           <NoteCard
           key={item._id}
@@ -101,7 +102,7 @@ const Home = () => {
         />
         ))}
         
-      </div>
+      </div> : <EmptyCard/>}
 
       <button className='add-button' onClick={() => {
         setOpenAddEditModal({ isShown: true, type: "add", data: null })
