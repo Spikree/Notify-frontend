@@ -23,11 +23,12 @@ const Navbar = (props) => {
     props.handleClearSearch();
   }
 
-  useEffect(() => {
-    if(!searchQuery) {
-      props.handleClearSearch();
-    }
-}, [searchQuery]);
+
+//   useEffect(() => {
+//     if(!searchQuery) {
+//       props.handleClearSearch();
+//     }
+// }, [searchQuery]);
 
 
   return (

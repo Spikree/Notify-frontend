@@ -95,7 +95,7 @@ const Home = () => {
   }
 
   const updateIsPinned = async(noteData) => {
-    
+
   }
 
   const handleClearSearch = () => {
