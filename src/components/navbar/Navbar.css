@@ -1,8 +1,27 @@
 .navbar {
     display: flex;
+    flex-wrap: wrap;
     border-bottom: 1px solid black;
     justify-content: space-between;
     align-items: center;
     padding-left: 40px;
     padding-right: 40px;
+}
+
+@media only screen and (max-width: 767px) {
+    .navbar {
+        gap: 20px;
+        padding-bottom: 20px;
+    }
+
+    .navbar .navbar-header {
+        text-align: center;
+        padding-bottom: 0px;
+        margin-bottom: 0px;
+    }
+
+    .navbar-header h2 {
+        padding-bottom: 0px;
+        margin-bottom: 0px;
+    }
 }

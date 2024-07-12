@@ -32,7 +32,10 @@ const Navbar = (props) => {
 
   return (
     <div className='navbar'>
+        
+        <div className="navbar-header">
         <h2>Notify</h2>
+        </div>
 
         {props.searchBar && <SearchBar value={searchQuery} onChange={({target}) => {
           setSearchQuery(target.value)
