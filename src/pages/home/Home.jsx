@@ -22,6 +22,8 @@ const Home = () => {
 
   const [searchBar, setSearchBar] = useState(false);
 
+  const [search, setIsSearch] = useState(false)
+
   const navigate = useNavigate();
 
 
@@ -76,6 +78,32 @@ const Home = () => {
   }
   }
 
+  // search for a note 
+  const onSearchNote = async(query) => {
+    try {
+      const response = await axiosInstance.get("/search-notes",{
+        params: { query },
+      });
+
+      if (response.data && response.data.notes) {
+        setIsSearch(true)
+        setAllNotes(response.data.notes);
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const updateIsPinned = async(noteData) => {
+    
+  }
+
+  const handleClearSearch = () => {
+    setIsSearch(false)
+    getAllNotes();
+
+  }
+
   useEffect(() => {
     getAllNotes();
     getUserInfo();
@@ -88,7 +116,7 @@ const Home = () => {
   return (
     <>
       <ToastContainer />
-      <Navbar searchBar={searchBar} userInfo={userInfo} />
+      <Navbar searchBar={searchBar} userInfo={userInfo} onSearchNote={onSearchNote} handleClearSearch={handleClearSearch} />
 
       {allNotes.length > 0 ? <div className="note-cards">
         {allNotes.map((item,index) => (

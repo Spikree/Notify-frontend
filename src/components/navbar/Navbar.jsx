@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Navbar.css'
 import ProfileInfo from '../cards/ProfileInfo'
 import { useNavigate } from 'react-router-dom'
@@ -15,12 +15,20 @@ const Navbar = (props) => {
   }
 
   const handleSearch = () => {
-
+    props.onSearchNote(searchQuery)
   }
 
   const onClearSearch = () => {
     setSearchQuery("")
+    props.handleClearSearch();
   }
+
+  useEffect(() => {
+    if(!searchQuery) {
+      props.handleClearSearch();
+    }
+}, [searchQuery]);
+
 
   return (
     <div className='navbar'>
