@@ -12,6 +12,7 @@ const Login = () => {
 
   const [email , setEmail] = useState("");
   const [password,setPassword] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const navigate = useNavigate();
 
@@ -35,6 +36,7 @@ const Login = () => {
 
       if(response.data && response.data.accessToken) {
         localStorage.setItem("token",response.data.accessToken)
+        setIsLoggedIn(!isLoggedIn)
         navigate('/home')
       }
 
@@ -50,7 +52,7 @@ const Login = () => {
   return (
     <div className='login'>
       <ToastContainer />
-      <Navbar/>
+      <Navbar isLoggedIn={isLoggedIn}/>
 
     <div className="login-box-parent">
       <div className="login-box">

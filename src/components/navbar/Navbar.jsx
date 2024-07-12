@@ -30,7 +30,7 @@ const Navbar = (props) => {
           setSearchQuery(target.value)
         }} handleSearch={handleSearch} onClearSearch={onClearSearch}/>}
 
-        <ProfileInfo userInfo={props.userInfo} onLogout={onLogout}/>
+        <ProfileInfo isLoggedIn={props.isLoggedIn} userInfo={props.userInfo} onLogout={onLogout}/>
     </div>
   )
 }
