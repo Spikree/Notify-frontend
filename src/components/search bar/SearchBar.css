@@ -30,3 +30,9 @@
     border: none;
     outline: none; 
 }
+
+@media only screen and (max-width: 767px) {
+    .search-bar {
+        padding: 3px;
+    }
+}

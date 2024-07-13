@@ -17,6 +17,10 @@
     justify-content: space-between;
 }
 
+.notecard-top .icons:hover {
+    color: #0071e3;
+}
+
 .pin-blue {
     color: #0071e3;
     font-size: 25px;

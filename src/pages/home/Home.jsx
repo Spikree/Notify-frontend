@@ -94,8 +94,25 @@ const Home = () => {
     }
   }
 
+  // update is pinned
   const updateIsPinned = async(noteData) => {
 
+    const noteId = noteData._id
+
+    try {
+      const response = await axiosInstance.put(`/update-note-pinned/${noteId}`, {
+        "isPinned": !noteId.isPinned
+      });
+      if (response.status === 200){
+        getAllNotes();
+        toast.success("Note updated successfully");
+      }else{
+        toast.error(response.data.message || "An error occurred while updating the note.");
+    }
+  } catch (error) {
+    console.error("Error updating note:", error);
+    toast.error(error.response?.data?.message || "An error occurred while updating the note.");
+  }
   }
 
   const handleClearSearch = () => {
@@ -129,7 +146,7 @@ const Home = () => {
           isPinned={item.isPinned}
           onEdit={() => handleEdit(item)}
           onDelete={() => deleteNote(item)}
-          onPinnedNote={() => { }}
+          onPinnedNote={() => updateIsPinned(item)}
         />
         ))}
         

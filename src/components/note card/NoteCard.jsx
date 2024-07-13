@@ -4,6 +4,7 @@ import { MdOutlinePushPin } from 'react-icons/md'
 import { MdCreate, MdDelete } from 'react-icons/md'
 
 const NoteCard = (props) => {
+  
   return (
     <div className='notecard'>
       <div className='notecard-top'>
@@ -12,7 +13,7 @@ const NoteCard = (props) => {
           <span className='date'>{props.date}</span>
         </div>
 
-        <MdOutlinePushPin style={{paddingBottom:18}} className={props.isPinned ?"pin-blue" : "icons"}/>
+        <MdOutlinePushPin onClick={props.onPinnedNote} style={{paddingBottom:18}} className={props.isPinned ?"pin-blue" : "icons"}/>
       </div>
 
       <p>{props.content?.slice(0,60)}. . . .</p>
